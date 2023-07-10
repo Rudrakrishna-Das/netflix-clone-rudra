@@ -1,0 +1,53 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s;
+  z-index: 999;
+}
+
+.nav_black {
+  background-color: #111;
+}
+
+.nav__content {
+  margin: 0.6% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_not_logged_in {
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-around;
+}
+.netflix_logo {
+  cursor: pointer;
+  width: 8rem;
+  height: 2.5rem;
+  margin: 6px 0;
+}
+.sign_in {
+  cursor: pointer;
+  margin-top: 0.2%;
+  padding: 0 1%;
+  width: 7%;
+  height: 1.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background-color: #e53c09;
+  color: white;
+  transition: all 0.5s;
+}
+
+.sign_in:hover {
+  background-color: #b63209;
+}
+
+.avatar_logo {
+  cursor: pointer;
+  margin: 0.2% 2%;
+  width: 2.5rem;
+  height: 2.5rem;
+}

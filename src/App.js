@@ -1,12 +1,22 @@
 import React from "react";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import HomePage from "./Pages/HomePage";
+
 import "./App.css";
+import RootPage from "./Pages/RootPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootPage />,
+    children: [{ path: "", element: <HomePage /> }],
+  },
+]);
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Lets build Netflix</h1>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

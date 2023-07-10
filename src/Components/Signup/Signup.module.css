@@ -1,0 +1,33 @@
+.signup {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: rgb(0, 0, 0, 0.85);
+  position: relative;
+  top: 110px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control input {
+  margin: 4% 10%;
+  padding: 10px;
+  max-width: 70%;
+  height: 1.5rem;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(59, 59, 59);
+}
+
+.form-control h1 {
+  color: white;
+  margin-top: 12%;
+  margin-bottom: 1%;
+  margin-left: 10%;
+  font-size: 35px;
+  text-align: left;
+}

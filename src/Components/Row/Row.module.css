@@ -1,0 +1,44 @@
+.row {
+  margin: 1%;
+}
+
+.title {
+  color: white;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.posters {
+  margin: 0.6% 2%;
+  padding: 0 1%;
+  max-height: 14rem;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+.posters::-webkit-scrollbar {
+  display: none;
+}
+.movie_poster {
+  cursor: pointer;
+  margin: 1% 0.3%;
+  max-height: 80px;
+  border: 1px solid gold;
+  border-radius: 8px;
+
+  transition: all 0.5s;
+}
+
+.movie_poster:hover {
+  transform: scale(1.09);
+  margin: 1%;
+}
+
+.large_movie_poster {
+  max-height: 200px;
+}
+.large_movie_poster:hover {
+  transform: scale(1.09);
+  margin: 1%;
+}
