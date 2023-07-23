@@ -1,19 +1,59 @@
-import { Outlet, redirect } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Navigation from "../Components/Navigation/Navigation";
+import { Outlet, useNavigate } from "react-router-dom";
+
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
 import Login from "../Components/Login/Login";
-import { useState } from "react";
+import Navigation from "../Components/Navigation/Navigation";
+
+import { login, logout, selectUser } from "../features/userSlice";
 
 const RootPage = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const user = useSelector(selectUser);
+  const isLogin = user !== null;
+  const dispatch = useDispatch();
 
-  const sighninHandler = () => {
-    setIsLogin(true);
+  const [isSignin, setIsSignin] = useState(false);
+
+  const navigate = useNavigate();
+
+  const openSignupHandler = () => {
+    setIsSignin((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      if (authUser) {
+        //Login
+        dispatch(
+          login({
+            id: authUser.uid,
+            email: authUser.email,
+          })
+        );
+        navigate("/");
+      } else {
+        //Logout
+        dispatch(logout());
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
     <>
-      <Navigation loggedIn={isLogin} sighnin={sighninHandler} />
-      <main>{!isLogin ? <Login /> : <Outlet />}</main>
+      <Navigation loggedIn={isLogin} onClick={openSignupHandler} />
+      <main>
+        {!isLogin ? (
+          <Login isSignin={isSignin} onClick={openSignupHandler} />
+        ) : (
+          <Outlet />
+        )}
+      </main>
     </>
   );
 };

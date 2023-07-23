@@ -1,0 +1,115 @@
+.profile_content {
+  width: 40%;
+  height: 20rem;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  color: white;
+}
+
+.divide {
+  border-bottom: 2px solid rgb(255, 255, 255, 0.1);
+  margin-bottom: 3%;
+}
+
+.avatar_image {
+  position: absolute;
+  top: 15%;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.profile__info {
+  position: absolute;
+  top: 14%;
+  left: 15%;
+  width: 86%;
+  margin-left: 2%;
+}
+
+.profile__info input {
+  width: 90%;
+  height: 1rem;
+  background-color: gray;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 2% 4%;
+  margin-top: 1%;
+  margin-bottom: 2.5%;
+}
+
+.date {
+  margin-bottom: 4%;
+}
+
+.subscription {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.btn {
+  background-color: #ad2a02;
+  color: white;
+  border: none;
+  padding: 7px 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.btn:hover {
+  background-color: #7a1d00;
+}
+
+.sighnout {
+  width: 100%;
+}
+.subscribed {
+  background-color: rgb(148, 148, 148);
+}
+.subscribed:hover {
+  background-color: rgb(88, 88, 88);
+}
+
+@media (max-width: 1200px) {
+  .profile_content {
+    width: 45%;
+  }
+}
+@media (max-width: 1053px) {
+  .profile_content {
+    width: 55%;
+  }
+}
+@media (max-width: 871px) {
+  .profile_content {
+    left: 18%;
+    width: 65%;
+  }
+}
+
+@media (max-width: 739px) {
+  .profile_content {
+    left: 10%;
+    width: 80%;
+  }
+}
+@media (max-width: 521px) {
+  .profile_content {
+    text-align: center;
+    left: 5%;
+  }
+  .avatar_image {
+    position: initial;
+  }
+  .profile__info {
+    position: initial;
+    width: 100%;
+    text-align: left;
+  }
+  .head {
+    text-align: left;
+  }
+}

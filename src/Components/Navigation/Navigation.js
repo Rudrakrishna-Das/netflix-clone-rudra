@@ -4,12 +4,22 @@ import { netflixLogoSrc } from "../../Images/imageFile";
 import { avatarLogoSrc } from "../../Images/imageFile";
 
 import Classes from "./Navigation.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = (props) => {
   const [trasparentNavbar, setTransparentNavbar] = useState(false);
 
-  const sighninHandler = () => {
-    props.sighnin();
+  const navigate = useNavigate();
+
+  const openSighnupPageHandler = () => {
+    props.onClick();
+  };
+
+  const profilePageHandler = () => {
+    navigate("/profile");
+  };
+  const homePageHandler = () => {
+    navigate("/");
   };
 
   const transparentNavbarHandler = () => {
@@ -35,16 +45,18 @@ const Navigation = (props) => {
         }`}
       >
         <img
+          onClick={homePageHandler}
           src={netflixLogoSrc}
           alt="netflix"
           className={Classes["netflix_logo"]}
         />
         {!props.loggedIn ? (
-          <button className={Classes.sign_in} onClick={sighninHandler}>
+          <button className={Classes.sign_in} onClick={openSighnupPageHandler}>
             Sign In
           </button>
         ) : (
           <img
+            onClick={profilePageHandler}
             src={avatarLogoSrc}
             alt="your avatar"
             className={Classes["avatar_logo"]}
