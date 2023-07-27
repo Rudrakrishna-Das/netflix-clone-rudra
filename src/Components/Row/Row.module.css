@@ -9,20 +9,28 @@
 }
 
 .posters {
-  margin: 0.6% 2%;
-  padding: 0 1%;
+  margin: 0.6% -1%;
+  padding: 2% 3%;
   max-height: 14rem;
+  max-width: 100%;
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-behavior: smooth;
 }
+
 .posters::-webkit-scrollbar {
   display: none;
 }
+
+.posters li {
+  list-style: none;
+  margin: 0.4%;
+}
+
 .movie_poster {
   cursor: pointer;
-  margin: 1% 0.3%;
+  margin: 1% 4%;
   max-height: 80px;
   border: 1px solid gold;
   border-radius: 8px;
@@ -31,14 +39,14 @@
 }
 
 .movie_poster:hover {
-  transform: scale(1.09);
-  margin: 1%;
+  transform: scale(1.1, 1.2);
+  margin: 0 4%;
 }
 
 .large_movie_poster {
   max-height: 200px;
 }
 .large_movie_poster:hover {
-  transform: scale(1.09);
-  margin: 1%;
+  transform: scale(1.1, 1.2);
+  margin: 0 4%;
 }

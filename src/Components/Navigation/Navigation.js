@@ -19,7 +19,7 @@ const Navigation = (props) => {
     navigate("/profile");
   };
   const homePageHandler = () => {
-    navigate("/");
+    props.loggedIn ? navigate("/movies") : navigate("/");
   };
 
   const transparentNavbarHandler = () => {

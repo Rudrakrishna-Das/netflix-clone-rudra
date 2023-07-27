@@ -7,13 +7,15 @@ import HomePage from "./Pages/HomePage";
 import "./App.css";
 import RootPage from "./Pages/RootPage";
 import ProfilePage from "./Pages/Profilepage";
+import MovieDetailsPage from "./Pages/MovieDetailsPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootPage />,
     children: [
-      { path: "", element: <HomePage /> },
+      { path: "/movies", element: <HomePage /> },
+      { path: "/movies/:id/:name", element: <MovieDetailsPage /> },
       { path: "profile", element: <ProfilePage /> },
     ],
   },

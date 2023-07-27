@@ -44,12 +44,6 @@
   margin-bottom: 4%;
 }
 
-.subscription {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5%;
-}
-
 .btn {
   background-color: #ad2a02;
   color: white;
@@ -65,12 +59,6 @@
 
 .sighnout {
   width: 100%;
-}
-.subscribed {
-  background-color: rgb(148, 148, 148);
-}
-.subscribed:hover {
-  background-color: rgb(88, 88, 88);
 }
 
 @media (max-width: 1200px) {

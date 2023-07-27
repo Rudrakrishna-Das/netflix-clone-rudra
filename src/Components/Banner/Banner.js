@@ -20,7 +20,7 @@ const Banner = () => {
     // const { results } = await response.json();
 
     //AXIOS
-    const { data } = await axios.get(requests.fetchNetflixOriginals);
+    const { data } = await axios.get(requests.netflixOriginals);
 
     const indexNum = Math.trunc(Math.random() * data.results.length);
     setMovies(data.results[indexNum]);

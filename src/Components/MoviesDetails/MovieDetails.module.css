@@ -1,0 +1,21 @@
+.movie-details {
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  margin-top: 6%;
+}
+
+.movie-image {
+  height: 26.5rem;
+  width: 20rem;
+  margin-top: 1%;
+  margin-left: 2%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.details {
+  margin-left: 5%;
+  padding: 4% 0.5%;
+  color: white;
+}

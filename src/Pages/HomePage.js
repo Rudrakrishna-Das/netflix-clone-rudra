@@ -8,17 +8,26 @@ const HomePage = () => {
     <header>
       <Banner />
       <Row
+        forPath="netflixoriginals"
         title="Netflix Originals"
-        fetchURL={requests.fetchNetflixOriginals}
+        fetchURL={requests.netflixOriginals}
         isLargeRow
       />
-      <Row title="Trendings" fetchURL={requests.fetchTrending} />
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
-      <Row title="Action Movies" fetchURL={requests.fetchActionMovies} />
-      <Row title="Romantic Movies" fetchURL={requests.fetchRomanceMovies} />
-      <Row title="Comedy Movies" fetchURL={requests.fetchComedyMovies} />
-      <Row title="Horror Movies" fetchURL={requests.fetchHorrorMovies} />
-      <Row title="Documentaries" fetchURL={requests.fetchDocumentaries} />
+      <Row forPath="trending" title="Trendings" fetchURL={requests.trending} />
+      <Row forPath="topRated" title="Top Rated" fetchURL={requests.topRated} />
+      <Row forPath="action" title="Action Movies" fetchURL={requests.action} />
+      <Row
+        forPath="romance"
+        title="Romantic Movies"
+        fetchURL={requests.romance}
+      />
+      <Row forPath="comedy" title="Comedy Movies" fetchURL={requests.comedy} />
+      <Row forPath="horror" title="Horror Movies" fetchURL={requests.horror} />
+      <Row
+        forPath="documentries"
+        title="Documentaries"
+        fetchURL={requests.documentries}
+      />
     </header>
   );
 };

@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "../../Requests $ Axios/axios";
 
 import Classes from "./Row.module.css";
+import { Link } from "react-router-dom";
 
-const Row = ({ title, fetchURL, isLargeRow = false }) => {
+const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
   const [movies, setMovies] = useState([]);
 
   const fetchMoviesHnadler = async () => {
@@ -23,29 +24,41 @@ const Row = ({ title, fetchURL, isLargeRow = false }) => {
   useEffect(() => {
     fetchMoviesHnadler();
   }, [fetchURL]);
-
   const base_URL = "https://image.tmdb.org/t/p/original/";
   return (
     <div className={Classes.row}>
       <h1 className={Classes.title}>{title}</h1>
-      <div className={Classes.posters}>
+      <ul className={Classes.posters}>
         {movies.map(
           (movie) =>
             ((isLargeRow && movie.poster_path) ||
               (!isLargeRow && movie.backdrop_path)) && (
-              <img
-                className={`${Classes["movie_poster"]} ${
-                  isLargeRow && Classes["large_movie_poster"]
-                }`}
-                key={movie.id}
-                src={`${base_URL}${
-                  isLargeRow ? movie.poster_path : movie.backdrop_path
-                }`}
-                alt={movie.name}
-              />
+              <li key={movie.id}>
+                <Link
+                  to={`${movie.id}/${(
+                    movie.name ||
+                    movie.title ||
+                    movie.original_name
+                  )
+                    .toLowerCase()
+                    .split(" ")
+                    .join("-")}`}
+                >
+                  <img
+                    className={`${Classes["movie_poster"]} ${
+                      isLargeRow && Classes["large_movie_poster"]
+                    }`}
+                    key={movie.id}
+                    src={`${base_URL}${
+                      isLargeRow ? movie.poster_path : movie.backdrop_path
+                    }`}
+                    alt={movie.name}
+                  />
+                </Link>
+              </li>
             )
         )}
-      </div>
+      </ul>
     </div>
   );
 };

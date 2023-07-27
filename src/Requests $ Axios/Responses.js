@@ -3,14 +3,14 @@ const API_KEY = "3f6796292096fcbf7dfcb9ab32fe7f6c";
 export const requests = {
   //AXIOS
 
-  fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
-  fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
-  fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
-  fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
-  fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
-  fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
-  fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-  fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
+  trending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+  netflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+  topRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
+  action: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
+  comedy: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
+  horror: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
+  romance: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
+  documentries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
 
   //FETCH
 
