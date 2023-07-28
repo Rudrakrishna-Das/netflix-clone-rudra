@@ -24,6 +24,7 @@ const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
   useEffect(() => {
     fetchMoviesHnadler();
   }, [fetchURL]);
+
   const base_URL = "https://image.tmdb.org/t/p/original/";
   return (
     <div className={Classes.row}>
@@ -35,7 +36,7 @@ const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
               (!isLargeRow && movie.backdrop_path)) && (
               <li key={movie.id}>
                 <Link
-                  to={`${movie.id}/${(
+                  to={`${forPath}/${movie.id}/${(
                     movie.name ||
                     movie.title ||
                     movie.original_name

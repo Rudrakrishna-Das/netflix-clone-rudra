@@ -34,7 +34,7 @@ const RootPage = () => {
             email: authUser.email,
           })
         );
-        navigate("/movies");
+        navigate("/movies&tv-shows");
       } else {
         //Logout
         dispatch(logout());

@@ -1,8 +1,13 @@
 .movie-details {
   height: 10rem;
   width: 100%;
-  display: flex;
   margin-top: 6%;
+}
+
+.movie-info {
+  position: relative;
+  display: flex;
+  z-index: 2;
 }
 
 .movie-image {
@@ -18,4 +23,39 @@
   margin-left: 5%;
   padding: 4% 0.5%;
   color: white;
+}
+.info {
+  margin: 0.2% 2%;
+}
+
+.fade {
+  height: 7rem;
+  width: 100%;
+  margin-top: 190px;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(24, 24, 24, 0.1),
+    #111
+  );
+  position: absolute;
+  top: 38%;
+  z-index: 1;
+}
+
+.other_movie_info {
+  width: 100%;
+}
+.other_movie_info h1 {
+  margin: 2% 3%;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.other_trailer {
+  display: flex;
+  max-width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
