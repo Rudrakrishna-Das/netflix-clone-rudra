@@ -1,0 +1,57 @@
+.episode {
+  cursor: pointer;
+  list-style: none;
+  background-color: rgb(27, 27, 27, 0.8);
+  width: 100%;
+  margin: 1% 0.5%;
+  height: 2rem;
+  padding-top: 0.5%;
+  padding-left: 1%;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 20px 2px rgba(59, 59, 59, 0.8);
+  transition: all 0.5s;
+}
+.episode:hover {
+  background-color: rgba(20, 20, 20, 0.8);
+  box-shadow: inset 2px 2px 20px 2px rgba(34, 34, 34, 0.8);
+}
+
+.episode_show {
+  background-color: rgb(27, 27, 27, 0.8);
+  max-width: 100%;
+  height: 40rem;
+  margin-left: 2%;
+  border-radius: 6px;
+  padding: 2%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.episode_details {
+  margin: 2% auto;
+  padding: 2%;
+  display: flex;
+  background-color: rgba(43, 43, 43, 0.8);
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px 2px rgba(8, 8, 8, 0.6);
+}
+.episode_image {
+  width: 20%;
+  height: 40%;
+  border-radius: 5px;
+}
+
+.episode_info {
+  margin: auto 2%;
+}
+
+.episode_info p {
+  font-size: 15px;
+  margin-top: 2%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.episode_show::-webkit-scrollbar,
+.episode_info p::-webkit-scrollbar {
+  display: none;
+}

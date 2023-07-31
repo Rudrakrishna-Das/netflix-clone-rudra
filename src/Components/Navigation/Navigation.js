@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
-
-import { netflixLogoSrc } from "../../Images/imageFile";
-import { avatarLogoSrc } from "../../Images/imageFile";
-
-import Classes from "./Navigation.module.css";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import {
+  netflixLogoSrc,
+  avatarLogoSrc,
+  searchIcon,
+} from "../../Images/imageFile";
+import Classes from "./Navigation.module.css";
+
 const Navigation = (props) => {
+  const searchRef = useRef();
   const [trasparentNavbar, setTransparentNavbar] = useState(false);
 
   const navigate = useNavigate();
@@ -19,7 +22,12 @@ const Navigation = (props) => {
     navigate("/profile");
   };
   const homePageHandler = () => {
-    props.loggedIn ? navigate("/movies") : navigate("/");
+    props.loggedIn ? navigate("/movies&tv-shows") : navigate("/");
+  };
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    const search = searchRef.current.value;
   };
 
   const transparentNavbarHandler = () => {
@@ -50,6 +58,19 @@ const Navigation = (props) => {
           alt="netflix"
           className={Classes["netflix_logo"]}
         />
+        {props.loggedIn && (
+          <form className={Classes.search} onSubmit={searchHandler}>
+            <input
+              className={Classes["search_field"]}
+              type="text"
+              placeholder="Search Your favourite MOVIES"
+              ref={searchRef}
+            />
+            <button type="submit" className={Classes["search_btn"]}>
+              <img src={searchIcon} />
+            </button>
+          </form>
+        )}
         {!props.loggedIn ? (
           <button className={Classes.sign_in} onClick={openSighnupPageHandler}>
             Sign In

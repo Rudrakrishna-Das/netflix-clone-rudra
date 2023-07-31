@@ -25,7 +25,69 @@
   cursor: pointer;
   width: 8rem;
   height: 2.5rem;
-  margin: 6px 0;
+  margin: 6px 8px;
+  transition: all 0.5s;
+}
+.netflix_logo:hover {
+  transform: scale(1.1);
+}
+
+.search {
+  width: 70%;
+  height: 3rem;
+  text-align: center;
+}
+
+.search_field {
+  width: 60%;
+  height: 2.8rem;
+  outline: none;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 16px;
+  padding: 0 2%;
+  box-shadow: 2px 1px 6px 1px #e53c09;
+  transition: all 0.5s;
+}
+.search_field:hover,
+.search_field:active {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 1px 6px 1px #ee5425;
+}
+
+.search_field::placeholder {
+  word-spacing: 12px;
+  letter-spacing: 6px;
+  font-style: italic;
+  transition: all 0.5s;
+}
+.search_field:focus::placeholder {
+  color: transparent;
+}
+
+.search_btn {
+  cursor: pointer;
+  background-color: #e53c09;
+  padding: 0.5%;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  top: 14%;
+  margin-left: 10px;
+  transition: all 0.5s;
+}
+
+.search_btn img {
+  width: 30px;
+  height: 30px;
+  font-size: 2px;
+  filter: invert(1);
+  object-fit: cover;
+}
+.search_btn:hover {
+  background-color: #b63209;
 }
 .sign_in {
   cursor: pointer;

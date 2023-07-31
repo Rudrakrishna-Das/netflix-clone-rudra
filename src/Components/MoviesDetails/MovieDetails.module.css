@@ -1,25 +1,25 @@
-.movie-details {
-  height: 10rem;
-  width: 100%;
-  margin-top: 6%;
-}
+/* MOVIE INFO */
 
 .movie-info {
-  position: relative;
+  width: 100%;
+  position: absolute;
+  top: 15%;
   display: flex;
   z-index: 2;
 }
 
 .movie-image {
-  height: 26.5rem;
-  width: 20rem;
+  height: 27rem;
+  width: 25%;
   margin-top: 1%;
   margin-left: 2%;
   border-radius: 5px;
   position: relative;
+  box-shadow: 2px 2px 10px 2px #111;
 }
 
 .details {
+  width: 60%;
   margin-left: 5%;
   padding: 4% 0.5%;
   color: white;
@@ -31,7 +31,6 @@
 .fade {
   height: 7rem;
   width: 100%;
-  margin-top: 190px;
   background-image: linear-gradient(
     180deg,
     transparent,
@@ -39,9 +38,134 @@
     #111
   );
   position: absolute;
-  top: 38%;
+  top: 87.2%;
   z-index: 1;
 }
+
+.loading {
+  background-color: #111;
+  width: 100%;
+  height: 2.5rem;
+  text-align: center;
+  margin-top: 10%;
+}
+.last_upload {
+  background-color: rgb(26, 25, 25, 0.8);
+  padding: 1%;
+  margin: 2% 0;
+  max-width: 25%;
+  text-align: center;
+  border-radius: 5px;
+}
+.tagline {
+  margin: 2% 0;
+}
+
+.description p {
+  text-align: justify;
+  padding: 2% 0;
+  padding-right: 1%;
+  max-height: 4rem;
+  max-width: 95%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border-top: 2px solid rgb(66, 66, 66, 0.3);
+  border-bottom: 2px solid rgb(66, 66, 66, 0.3);
+}
+
+.stars {
+  margin: 3% 0;
+  width: 42%;
+  height: 1.5rem;
+  padding: 1% 0;
+  text-align: center;
+  border-top: 2px solid rgb(66, 66, 66, 0.3);
+  border-bottom: 2px solid rgb(66, 66, 66, 0.3);
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.loading h1 {
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* ACTORS */
+.all_details {
+  max-width: 100%;
+  height: 25rem;
+  margin: 3% 0;
+  margin-top: 5%;
+  padding: 1%;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.all_details h1 {
+  text-decoration: underline;
+}
+
+.charcter_img {
+  height: 200px;
+  width: 140px;
+  border-radius: 5px;
+}
+.cast {
+  width: 100%;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.cast li {
+  cursor: pointer;
+  width: 40%;
+  background-color: rgb(27, 27, 27, 0.6);
+  margin: 2%;
+  list-style: none;
+  border-radius: 5px;
+}
+.cast li,
+.cast p {
+  padding: 1%;
+}
+.cast p {
+  margin-top: 4%;
+  font-size: 14px;
+}
+.cast h3 {
+  margin-top: 2%;
+}
+
+.no_cast {
+  width: 100%;
+  height: 4rem;
+  margin: 3% 0;
+  padding: 1%;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.no_cast h2 {
+  margin: 2%;
+  text-align: center;
+}
+
+/* SEASONS */
+
+.episodes_details {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  width: 100%;
+}
+
+.season {
+  max-width: 98%;
+}
+
+/* VIDEOS */
 
 .other_movie_info {
   width: 100%;
@@ -58,4 +182,17 @@
   overflow-y: hidden;
   overflow-x: scroll;
   scroll-behavior: smooth;
+}
+
+.other_trailer li {
+  max-width: 100%;
+  list-style: none;
+  margin: 0 1%;
+}
+
+.description p::-webkit-scrollbar,
+.stars::-webkit-scrollbar,
+.cast::-webkit-scrollbar,
+.other_trailer::-webkit-scrollbar {
+  display: none;
 }

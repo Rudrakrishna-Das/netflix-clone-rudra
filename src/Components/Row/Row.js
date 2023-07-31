@@ -36,7 +36,9 @@ const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
               (!isLargeRow && movie.backdrop_path)) && (
               <li key={movie.id}>
                 <Link
-                  to={`${forPath}/${movie.id}/${(
+                  to={`${
+                    movie.hasOwnProperty("release_date") ? "movie" : "tv"
+                  }/${movie.id}/${(
                     movie.name ||
                     movie.title ||
                     movie.original_name

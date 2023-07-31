@@ -47,7 +47,7 @@ const RootPage = () => {
   return (
     <>
       <Navigation loggedIn={isLogin} onClick={openSignupHandler} />
-      <main>
+      <main style={{ width: "100%" }}>
         {!isLogin ? (
           <Login isSignin={isSignin} onClick={openSignupHandler} />
         ) : (
