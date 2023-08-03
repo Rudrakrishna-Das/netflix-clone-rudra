@@ -8,6 +8,7 @@ import { selectUser } from "../../features/userSlice";
 
 import Classes from "./Profile.module.css";
 import PlanScreen from "./PlanScreen/PlanScreen";
+import { useEffect } from "react";
 
 const Profile = () => {
   const user = useSelector(selectUser);
@@ -15,6 +16,10 @@ const Profile = () => {
   const signoutHandler = () => {
     auth.signOut();
   };
+
+  useEffect(() => {
+    document.title = "profile";
+  }, []);
   return (
     <section className={Classes["profile_content"]}>
       <h1 className={Classes.head}>Edit Profile</h1>

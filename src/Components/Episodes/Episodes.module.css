@@ -27,21 +27,27 @@
   overflow-y: scroll;
 }
 .episode_details {
+  cursor: not-allowed;
   margin: 2% auto;
   padding: 2%;
   display: flex;
   background-color: rgba(43, 43, 43, 0.8);
   border-radius: 6px;
-  box-shadow: 2px 2px 10px 2px rgba(8, 8, 8, 0.6);
+  box-shadow: 2px 2px 10px 2px rgba(66, 66, 66, 0.6);
+  transition: all 0.5s;
 }
+
 .episode_image {
   width: 20%;
-  height: 40%;
+  height: 8rem;
   border-radius: 5px;
 }
 
 .episode_info {
   margin: auto 2%;
+}
+.episode_info h1 {
+  margin-bottom: 1.5%;
 }
 
 .episode_info p {

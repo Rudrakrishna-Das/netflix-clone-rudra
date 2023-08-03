@@ -1,0 +1,30 @@
+.page_button {
+  display: flex;
+  height: 2rem;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+}
+
+.page_button button {
+  cursor: pointer;
+  margin: 0 1%;
+  padding: 4px;
+  width: 60px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #e53c09;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  transition: all 0.5s;
+}
+
+.page_button button:hover {
+  background-color: #b92f05;
+}
+
+.page_button button:disabled {
+  cursor: not-allowed;
+  background-color: rgb(46, 46, 46);
+}

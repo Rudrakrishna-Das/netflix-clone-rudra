@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import ReactPlayer from "react-player/lazy";
 
 import Episodes from "../Episodes/Episodes";
-import ReactPlayer from "react-player/lazy";
+import { BASE_URL } from "../../Requests $ Axios/Helper";
 
 import Classes from "./MovieDetails.module.css";
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [movieData, setMovieData] = useState(null);
   const [tvEpisode, setTvEpisode] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [title, setTitle] = useState("");
   const { id, type } = useParams();
 
-  const baseUrl = "https://image.tmdb.org/t/p/original";
+  const baseUrl = BASE_URL;
   const runMovies = async () => {
-    setLoading(true);
     try {
       const mov = await fetch(
         `https://api.themoviedb.org/3/${type}/${id}?&append_to_response=videos&api_key=3f6796292096fcbf7dfcb9ab32fe7f6c`
@@ -31,6 +32,9 @@ const MovieDetails = () => {
       if (type === "movie") {
         setMovie(dataOfMovie);
         setMovieData(dataAboutMovie);
+        setTitle(
+          dataOfMovie?.title || dataOfMovie?.name || dataOfMovie?.original_name
+        );
         return;
       }
       const allEpisodes = [];
@@ -49,10 +53,12 @@ const MovieDetails = () => {
       setMovie(dataOfMovie);
       setMovieData(dataAboutMovie);
       setTvEpisode(allEpisodes);
+      setTitle(
+        dataOfMovie?.title || dataOfMovie?.name || dataOfMovie?.original_name
+      );
     } catch (err) {
-      console.log(err);
+      setHasError(true);
     }
-    setLoading(false);
   };
   const onTop = () => {
     window.scrollTo(0, 0);
@@ -60,8 +66,11 @@ const MovieDetails = () => {
 
   useEffect(() => {
     runMovies();
+    document.title = title;
     onTop();
-  }, []);
+  }, [title]);
+
+  console.log(title);
 
   let year, genres, hour, min, movieName;
 
@@ -99,7 +108,6 @@ const MovieDetails = () => {
     type === "tv" && movie?.in_production ? "(Ongoing)" : "(Finished)";
   const movieMainCharacters = movieData !== null && movieData.cast.slice(0, 3);
   const cast = movieData?.cast.slice(0, 9);
-
   const stars =
     movieMainCharacters?.length > 0 ? (
       <p>
@@ -110,10 +118,11 @@ const MovieDetails = () => {
     ) : (
       "NO Cast Found"
     );
-
   return (
     <section>
-      {movie ? (
+      {hasError ? (
+        <h1 className={Classes.err}>Something Went Wrong</h1>
+      ) : movie && hasError !== true ? (
         <>
           <div
             style={{
@@ -151,12 +160,10 @@ const MovieDetails = () => {
                 <div className={Classes.description}>
                   <p>{movie?.overview}</p>
                 </div>
-                <div className={Classes.stars}>
-                  <p>{stars}</p>
-                </div>
+                <div className={Classes.stars}>{stars}</div>
               </div>
-              <div className={Classes.fade}></div>
             </div>
+            <div className={Classes.fade}></div>
           </div>
           <div
             className={`${
@@ -167,13 +174,15 @@ const MovieDetails = () => {
             <ul className={Classes.cast}>
               {cast?.length > 0 ? (
                 cast.map((charcter) => (
-                  <li key={charcter.id}>
-                    <img
-                      className={Classes["charcter_img"]}
-                      src={baseUrl + charcter.profile_path}
-                    />
-                    <h3>{charcter.original_name || charcter.name}</h3>
-                    <p>{charcter.character}</p>
+                  <li key={charcter?.id}>
+                    <Link to={`/people/${charcter.id}/${charcter.name}`}>
+                      <img
+                        className={Classes["charcter_img"]}
+                        src={baseUrl + charcter.profile_path}
+                      />
+                      <h3>{charcter.original_name || charcter.name}</h3>
+                      <p>{charcter.character}</p>
+                    </Link>
                   </li>
                 ))
               ) : (
@@ -188,36 +197,38 @@ const MovieDetails = () => {
               <ul className={Classes.season}>{episode}</ul>
             </div>
           )}
-          <div className={Classes["other_movie_info"]}>
-            <h1>WATCH TRAILER</h1>
-            <ReactPlayer
-              style={{ margin: "2% auto" }}
-              width="80%"
-              controls="true"
-              url={`https://www.youtube.com/watch?v=${
-                trailer !== undefined && trailer[0].key
-              }`}
-            />
-            {otherTrailers?.length > 0 && (
-              <>
-                <h1>OTHER TRAILERS</h1>
-                <ul className={Classes["other_trailer"]}>
-                  {otherTrailers.map((video) => (
-                    <li key={video.id}>
-                      <ReactPlayer
-                        controls
-                        style={{ margin: "2% 3%" }}
-                        width="100%"
-                        url={`https://www.youtube.com/watch?v=${
-                          trailer !== undefined && video.key
-                        }`}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
+          {trailer?.length > 0 ? (
+            <div className={Classes["other_movie_info"]}>
+              <h1>WATCH TRAILER</h1>
+              <ReactPlayer
+                style={{ margin: "2% auto" }}
+                width="80%"
+                controls="true"
+                url={`https://www.youtube.com/watch?v=${trailer[0]?.key}`}
+              />
+              {otherTrailers?.length > 0 && (
+                <>
+                  <h1>OTHER TRAILERS</h1>
+                  <ul className={Classes["other_trailer"]}>
+                    {otherTrailers.map((video) => (
+                      <li key={video.id}>
+                        <ReactPlayer
+                          controls
+                          style={{ margin: "2% 3%" }}
+                          width="100%"
+                          url={`https://www.youtube.com/watch?v=${
+                            trailer !== undefined && video.key
+                          }`}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          ) : (
+            <h1 className={Classes["not_found"]}> No Trailer Found</h1>
+          )}
         </>
       ) : (
         <div className={Classes.loading}>

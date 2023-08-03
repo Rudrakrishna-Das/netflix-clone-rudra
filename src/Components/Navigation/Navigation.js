@@ -27,7 +27,8 @@ const Navigation = (props) => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    const search = searchRef.current.value;
+    const searchValue = searchRef.current.value;
+    navigate(`/search-result/result/${searchValue}`);
   };
 
   const transparentNavbarHandler = () => {

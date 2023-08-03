@@ -4,6 +4,7 @@ import axios from "../../Requests $ Axios/axios";
 
 import Classes from "./Row.module.css";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../Requests $ Axios/Helper";
 
 const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
   const [movies, setMovies] = useState([]);
@@ -25,7 +26,7 @@ const Row = ({ forPath, title, fetchURL, isLargeRow = false }) => {
     fetchMoviesHnadler();
   }, [fetchURL]);
 
-  const base_URL = "https://image.tmdb.org/t/p/original/";
+  const base_URL = BASE_URL;
   return (
     <div className={Classes.row}>
       <h1 className={Classes.title}>{title}</h1>

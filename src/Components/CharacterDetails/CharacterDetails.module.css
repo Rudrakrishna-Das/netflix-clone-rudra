@@ -1,0 +1,87 @@
+.all_details {
+  margin-top: 120px;
+}
+.name {
+  color: white;
+  font-family: monospace;
+  font-size: 60px;
+  text-align: center;
+}
+
+.personal_details {
+  text-align: center;
+}
+
+.person_img {
+  width: 17rem;
+  height: 24rem;
+}
+
+.details {
+  color: white;
+  margin: 4%;
+  text-align: left;
+}
+.description {
+  text-align: center;
+  margin-top: 1%;
+  padding: 1%;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  max-height: 6rem;
+  overflow-y: scroll;
+}
+
+.person_img_details {
+  display: flex;
+  max-width: 100%;
+  overflow-y: hidden;
+}
+.person_img_details li {
+  margin: 2%;
+  list-style: none;
+}
+
+.person_img_details li img {
+  width: 10rem;
+  height: 14rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.person_img_details li img:hover {
+  filter: blur(4px);
+}
+
+.big_image img {
+  position: absolute;
+  border-radius: 6px;
+  top: 100%;
+  left: 30%;
+  height: 30rem;
+  width: 25rem;
+  z-index: 92;
+}
+
+.overlay {
+  height: 1195px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 91;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 562px) {
+  .big_image img {
+    height: 20rem;
+    width: 15rem;
+    left: 10%;
+  }
+  .overlay {
+    height: 1450px;
+  }
+}

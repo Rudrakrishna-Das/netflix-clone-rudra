@@ -37,8 +37,8 @@
     rgba(24, 24, 24, 0.1),
     #111
   );
+  margin-top: 500px;
   position: absolute;
-  top: 87.2%;
   z-index: 1;
 }
 
@@ -122,11 +122,12 @@
 }
 .cast li {
   cursor: pointer;
-  width: 40%;
+  width: 200px;
   background-color: rgb(27, 27, 27, 0.6);
   margin: 2%;
   list-style: none;
   border-radius: 5px;
+  transition: all 0.5s;
 }
 .cast li,
 .cast p {
@@ -138,6 +139,14 @@
 }
 .cast h3 {
   margin-top: 2%;
+}
+.cast li a {
+  text-decoration: none;
+  color: white;
+}
+.cast li:hover {
+  background-color: rgba(58, 58, 58, 0.6);
+  margin: 3%;
 }
 
 .no_cast {
@@ -195,4 +204,16 @@
 .cast::-webkit-scrollbar,
 .other_trailer::-webkit-scrollbar {
   display: none;
+}
+
+.not_found {
+  text-align: center;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.err {
+  width: 60%;
+  margin: 200px 40%;
+  color: white;
 }
