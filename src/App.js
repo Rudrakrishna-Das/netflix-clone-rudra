@@ -11,11 +11,14 @@ import MovieDetailsPage from "./Pages/MovieDetailsPage";
 import CharacterDetailsPage from "./Pages/CharacterDetailsPage";
 import SearchResultPage from "./Pages/SearchResultPage";
 import SearchDetailsPage from "./Pages/SearchDetailsPage";
+import AllCaracterPage from "./Pages/AllCharactersPage";
+import Errorpage from "./Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootPage />,
+    errorElement: <Errorpage />,
     children: [
       { path: "/movies&tv-shows", element: <HomePage /> },
       {
@@ -28,10 +31,18 @@ const router = createBrowserRouter([
         element: <SearchDetailsPage />,
       },
       {
+        path: "/search-result-info/:type/:id/:name/all-characters",
+        element: <AllCaracterPage />,
+      },
+      {
         path: "people/:id/:name",
         element: <CharacterDetailsPage />,
       },
       { path: "profile", element: <ProfilePage /> },
+      {
+        path: "/movies&tv-shows/:type/:id/:name/all-characters",
+        element: <AllCaracterPage />,
+      },
     ],
   },
 ]);

@@ -3,7 +3,7 @@
 .movie-info {
   width: 100%;
   position: absolute;
-  top: 15%;
+  top: 136px;
   display: flex;
   z-index: 2;
 }
@@ -29,7 +29,7 @@
 }
 
 .fade {
-  height: 7rem;
+  height: 11rem;
   width: 100%;
   background-image: linear-gradient(
     180deg,
@@ -39,6 +39,7 @@
   );
   margin-top: 500px;
   position: absolute;
+  top: 0;
   z-index: 1;
 }
 
@@ -53,7 +54,7 @@
   background-color: rgb(26, 25, 25, 0.8);
   padding: 1%;
   margin: 2% 0;
-  max-width: 25%;
+  width: 250px;
   text-align: center;
   border-radius: 5px;
 }
@@ -120,33 +121,32 @@
   overflow-x: auto;
   scroll-behavior: smooth;
 }
-.cast li {
+
+.cast .characters {
   cursor: pointer;
-  width: 200px;
+  min-width: 150px;
+  padding: 10px;
+  padding-left: 20px;
   background-color: rgb(27, 27, 27, 0.6);
   margin: 2%;
   list-style: none;
   border-radius: 5px;
   transition: all 0.5s;
 }
-.cast li,
-.cast p {
-  padding: 1%;
-}
-.cast p {
+
+.cast .desc {
   margin-top: 4%;
   font-size: 14px;
 }
 .cast h3 {
   margin-top: 2%;
 }
-.cast li a {
+.cast .characters a {
   text-decoration: none;
   color: white;
 }
-.cast li:hover {
+.cast .characters:hover {
   background-color: rgba(58, 58, 58, 0.6);
-  margin: 3%;
 }
 
 .no_cast {
@@ -162,6 +162,25 @@
   text-align: center;
 }
 
+.show_more {
+  list-style: none;
+  margin: auto 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.show_more p {
+  width: 100px;
+}
+.show_more p a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.show_more p a:hover {
+  color: rgb(145, 145, 145);
+}
 /* SEASONS */
 
 .episodes_details {
@@ -201,7 +220,6 @@
 
 .description p::-webkit-scrollbar,
 .stars::-webkit-scrollbar,
-.cast::-webkit-scrollbar,
 .other_trailer::-webkit-scrollbar {
   display: none;
 }
@@ -216,4 +234,18 @@
   width: 60%;
   margin: 200px 40%;
   color: white;
+}
+
+@media (max-width: 386px) {
+  .last_upload {
+    width: 200px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 280px) {
+  .last_upload {
+    width: 170px;
+    font-size: 12px;
+  }
 }

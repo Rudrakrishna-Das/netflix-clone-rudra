@@ -14,9 +14,14 @@
 }
 
 .movie img {
+  cursor: pointer;
   height: 180px;
   width: 140px;
   border-radius: 5px;
+  transition: all 0.5s;
+}
+.movie img:hover {
+  transform: scale(2.5);
 }
 .movie_info {
   margin: auto 0;
@@ -24,6 +29,15 @@
 }
 .movie_info h1 {
   margin-bottom: 2%;
+}
+.movie_info h1 a {
+  color: #e53c09;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.movie_info h1 a:hover {
+  color: #a52b06;
 }
 
 .page {
@@ -37,9 +51,33 @@
   color: white;
 }
 
-@media (max-width: 412px) {
+@media (max-width: 585px) {
   .page {
     margin-left: 10%;
     width: 100%;
+  }
+}
+@media (max-width: 440px) {
+  .page {
+    margin-left: 4%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 397px) {
+  .page {
+    margin-left: 9%;
+  }
+  .page h3 {
+    font-size: 15px;
+  }
+  .all_movies {
+    margin-left: 6%;
+  }
+}
+@media (max-width: 304px) {
+  .page {
+    margin-left: 2%;
+    width: 110%;
   }
 }

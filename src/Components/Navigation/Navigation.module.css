@@ -33,9 +33,13 @@
 }
 
 .search {
-  width: 70%;
+  width: 100%;
   height: 3rem;
   text-align: center;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  animation: comeout 300ms ease-out;
 }
 
 .search_field {
@@ -70,12 +74,13 @@
 .search_btn {
   cursor: pointer;
   background-color: #e53c09;
-  padding: 0.5%;
+  padding: 4px;
   border: none;
   border-radius: 5px;
-  position: relative;
-  top: 14%;
   margin-left: 10px;
+  margin-top: 2px;
+  position: absolute;
+  top: 0.5%;
   transition: all 0.5s;
 }
 
@@ -89,6 +94,7 @@
 .search_btn:hover {
   background-color: #b63209;
 }
+
 .sign_in {
   cursor: pointer;
   margin-top: 0.2%;
@@ -109,7 +115,81 @@
 
 .avatar_logo {
   cursor: pointer;
-  margin: 0.2% 2%;
+  margin: 0.2% 6%;
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.nav_right_button {
+  display: flex;
+  width: 120px;
+}
+
+.search_bar_open {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  filter: invert(1);
+  margin-left: 8px;
+}
+.search_bar_open img {
+  width: 40px;
+  height: 30px;
+  font-size: 2px;
+}
+
+@media (max-width: 245px) {
+  .nav_right_button {
+    width: 200px;
+  }
+  .netflix_logo {
+    width: 5rem;
+    height: 2rem;
+  }
+}
+
+@keyframes comeout {
+  0% {
+    opacity: 0;
+    transform: translateY(-42px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 670px) {
+  .search_field::placeholder {
+    word-spacing: 4px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 448px) {
+  .search {
+    margin-left: -4%;
+  }
+  .search_field::placeholder {
+    word-spacing: 0;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 338px) {
+  .search {
+    margin-left: -8%;
+  }
+  .search_field::placeholder {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 254px) {
+  .search_field::placeholder {
+    font-size: 10px;
+  }
 }

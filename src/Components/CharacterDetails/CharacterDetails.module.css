@@ -36,6 +36,8 @@
   display: flex;
   max-width: 100%;
   overflow-y: hidden;
+  margin: 0 60px;
+  margin-bottom: 30px;
 }
 .person_img_details li {
   margin: 2%;
@@ -79,9 +81,16 @@
   .big_image img {
     height: 20rem;
     width: 15rem;
-    left: 10%;
+    top: 110%;
+    left: 18%;
   }
   .overlay {
-    height: 1450px;
+    height: 1200px;
+  }
+}
+
+@media (max-width: 281px) {
+  .big_image img {
+    left: 7%;
   }
 }

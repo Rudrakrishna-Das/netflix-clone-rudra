@@ -28,3 +28,14 @@
   cursor: not-allowed;
   background-color: rgb(46, 46, 46);
 }
+
+@media (max-width: 397px) {
+  .page_button p {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .page_button button {
+    font-size: 15px;
+    width: 50px;
+  }
+}

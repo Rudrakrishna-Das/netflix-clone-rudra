@@ -41,7 +41,6 @@ const CharacterDetails = () => {
     const maxNmaeLength = Math.max(...fullName?.map((n) => n.length));
     fullName = fullName?.filter((n) => n.length === maxNmaeLength);
   }
-
   const imageOpenHandler = (imgURL) => {
     setImageOpen(true);
     setImageUrl(imgURL);
@@ -50,6 +49,19 @@ const CharacterDetails = () => {
   const closeImageHandler = () => {
     setImageOpen(false);
   };
+  const birthDate = new Date(bio?.birthday);
+  let age;
+  if (bio?.deathDay !== undefined) {
+    const deathDate = bio?.deathday !== null && new Date(bio?.deathday);
+    const diedPerson = deathDate - birthDate.getTime();
+    const diedAge = new Date(diedPerson);
+    age = diedAge.getFullYear() - 1970;
+  } else {
+    const nowDate = Date.now();
+    const alivePerson = nowDate - birthDate.getTime();
+    const aliveAge = new Date(alivePerson);
+    age = Math.abs(aliveAge.getUTCFullYear() - 1970);
+  }
 
   return (
     <section>
@@ -68,10 +80,32 @@ const CharacterDetails = () => {
                 Full Name:- &nbsp; &nbsp;{" "}
                 {fullName.length > 0 ? fullName[0] : bio.name}
               </h3>
-              <h3>profession:- {bio.known_for_department}</h3>
-              <h4>BirthDate:- &nbsp; &nbsp; {bio.birthday} </h4>
-              <h5>Place oF Born:- {bio.place_of_birth}</h5>
-              {bio.deathday && <h5>{bio.deathday}</h5>}
+              <h3>profession:- &nbsp;&nbsp; {bio.known_for_department}</h3>
+              <h4>
+                BirthDate:- &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; {bio.birthday}{" "}
+              </h4>
+              {bio.deathday && (
+                <h5>
+                  Died On:- &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {bio.deathday}
+                </h5>
+              )}
+              {bio.deathday ? (
+                <h5>
+                  Died On Age:-
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {age}{" "}
+                </h5>
+              ) : (
+                <h5>
+                  Present Age:-
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {age}{" "}
+                </h5>
+              )}
+              <h5>
+                Place oF Born:- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+                {bio.place_of_birth}
+              </h5>
             </div>
           </div>
           <div className={Classes.description}>

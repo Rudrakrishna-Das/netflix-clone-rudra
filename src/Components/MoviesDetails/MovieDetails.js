@@ -70,8 +70,6 @@ const MovieDetails = () => {
     onTop();
   }, [title]);
 
-  console.log(title);
-
   let year, genres, hour, min, movieName;
 
   if (movie !== null && movie !== undefined) {
@@ -127,7 +125,7 @@ const MovieDetails = () => {
           <div
             style={{
               backgroundImage: `linear-gradient(90deg, rgb(0, 0, 0,0.85),rgb(0, 0, 0,0.85)),url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
-              height: "38rem",
+              height: "42rem",
               width: "100%",
               backgroundSize: "cover",
               backgroundPosition: "center center",
@@ -171,24 +169,34 @@ const MovieDetails = () => {
             }`}
           >
             <h1>Top Cast</h1>
-            <ul className={Classes.cast}>
-              {cast?.length > 0 ? (
-                cast.map((charcter) => (
-                  <li key={charcter?.id}>
-                    <Link to={`/people/${charcter.id}/${charcter.name}`}>
-                      <img
-                        className={Classes["charcter_img"]}
-                        src={baseUrl + charcter.profile_path}
-                      />
-                      <h3>{charcter.original_name || charcter.name}</h3>
-                      <p>{charcter.character}</p>
-                    </Link>
+            <div>
+              <ul className={Classes.cast}>
+                {cast?.length > 0 ? (
+                  cast.map((character) => (
+                    <li className={Classes.characters} key={character?.id}>
+                      <Link to={`/people/${character.id}/${character.name}`}>
+                        <img
+                          className={Classes["charcter_img"]}
+                          src={baseUrl + character.profile_path}
+                          alt={character.name}
+                        />
+                        <h3>{character.original_name || character.name}</h3>
+                        <p className={Classes.desc}>{character.character}</p>
+                      </Link>
+                    </li>
+                  ))
+                ) : (
+                  <h2>NO CHARACTER FOUND</h2>
+                )}
+                {cast?.length > 0 && (
+                  <li className={Classes["show_more"]}>
+                    <p>
+                      <Link to={`all-characters`}>Show More</Link>
+                    </p>
                   </li>
-                ))
-              ) : (
-                <h2>NO CHARACTER FOUND</h2>
-              )}
-            </ul>
+                )}
+              </ul>
+            </div>
           </div>
           ;
           {type === "tv" && (
