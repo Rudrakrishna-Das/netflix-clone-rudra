@@ -9,12 +9,16 @@ import { selectUser } from "../../features/userSlice";
 import Classes from "./Profile.module.css";
 import PlanScreen from "./PlanScreen/PlanScreen";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const user = useSelector(selectUser);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
   const signoutHandler = () => {
     auth.signOut();
+    localStorage.removeItem("user"); //removing from local storage when sighnout
+    navigate("/");
   };
 
   useEffect(() => {
